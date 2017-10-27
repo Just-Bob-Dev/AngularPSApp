@@ -8,7 +8,7 @@ import { IProduct } from './product';
 })
 
 
-export class ProductListComponent implements OnInit{
+export class ProductListComponent implements OnInit {
     pageTitle: string = 'Product List';
     imageWidth: number = 50;
     imageMargin: number = 2;
@@ -50,6 +50,10 @@ export class ProductListComponent implements OnInit{
     constructor() {
         this.filteredProducts = this.products;
         this.listFilter = ' ';
+    }
+
+    onRatingClicked(message: string): void {
+        this.pageTitle = 'Product List: ' + message;
     }
 
     performFilter(filterBy: string): IProduct[] {
