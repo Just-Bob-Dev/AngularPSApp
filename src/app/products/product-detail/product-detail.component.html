@@ -1,5 +1,22 @@
-<div class='panel panel-primary' *ngIf='produc'>
+<div class='panel panel-primary' *ngIf='product'>
   <div class='panel-heading'>
     {{pageTitle + ': ' + product.productName}}  
-  </div>  
+    <div class="container panel-body"> 
+  </div>
+        <div class="col-md-4">
+          <ul>
+            <li>{{product.productCode | lowercase | convertToSpaces}}</li>
+            <li>{{product.releaseDate}}</li>
+            <li>{{product.price | currency:'USD':true:'1.2-2'}}</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img [src]='product.imageUrl'/>
+        </div>
+      </div>
+  <div class='panel-footer'>
+    <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+      <i class='glyphicon glyphicon-chevron-left'></i> Back
+    </a>
+  </div>
 </div>
